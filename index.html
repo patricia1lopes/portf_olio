@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="estilos/main.css" />
+  </head>
+  <body>
+    <div class="fixed w-full">
+      <nav
+        class="rounded-3xl bg-white p-2 drop-shadow-blue-900-10xl mx-2 my-3 flex justify-between items-center">
+        <button><img src="img/logo2.png" class="w-18 h-12 object-cover px-14 mx-8">
+            <a href="index.html" class="btn"></a>
+        </img>
+    </button>
+        
+        <div class="mx-4 flex space-x-4">
+          <button class="rounded-3xl border drop-shadow-5xl px-5 py-2 font-light bg-red-900 text-white">
+            <a href="sobre.html" class="btn">Sobre</a>
+          </button>
+          <button
+            class="rounded-3xl border shadow-md px-5 py-2 font-light bg-red-900 text-white">
+            <a href="projectos.html" class="btn">Projectos</a>
+          </button>
+
+        </div>
+      </nav>
+    </div>
+    <main>
+       
+        <div><div class="typewriter-container">
+          <h1 class="typewriter-text" id="typewriter"></h1>
+          
+        </div>
+    </main>
+    <footer class=" fixed bottom-0 left-0 w-full bg-red-900 text-gray-100 text-center py-2 drop-shadow-5xl">Copyright © 2024
+        
+    </footer>
+<style>
+  /* Centralizar o conteúdo */
+.typewriter-container {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  height: 100vh;
+  background-image:url(/img/pldefundo.jpg); /* Caminho da imagem */
+  background-size: cover; /* Preenche toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+  color:darkred; /* Altere conforme o tema */
+  font-family: 'Courier New', Courier, monospace;
+  font: bold;
+}
+
+.typewriter-text {
+  font-size: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff; /* Efeito do cursor */
+  animation: blinkCursor 0.7s steps(2, start) infinite;
+  margin-top: -400px;
+}
+
+/* Animação do cursor piscando */
+@keyframes blinkCursor {
+  0% { border-right-color: #fff; }
+  50% { border-right-color: transparent; }
+  100% { border-right-color: #fff; }
+}
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif /* Altere para a fonte desejada */
+      }
+
+</style>
+      
+
+      
+    </div>
+    
+    <script>
+     const text = "Imagens que falam e histórias que inspiram...";
+const typewriterElement = document.getElementById("typewriter");
+let index = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  // Determina o texto visível baseado no estado (escrevendo ou apagando)
+  const visibleText = isDeleting
+    ? text.substring(0, index--)
+    : text.substring(0, index++);
+
+  // Atualiza o elemento com o texto atual
+  typewriterElement.textContent = visibleText;
+
+  // Alterna entre escrever e apagar
+  if (!isDeleting && index > text.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 2000); // Pausa antes de apagar
+  } else if (isDeleting && index === 0) {
+    isDeleting = false;
+    setTimeout(typeEffect, 1000); // Pausa antes de reescrever
+  } else {
+    const typingSpeed = isDeleting ? 50 : 100; // Velocidade diferente ao apagar
+    setTimeout(typeEffect, typingSpeed);
+  }
+}
+
+// Inicia o efeito
+typeEffect();
+
+    </script>
+    
+    
+
+  </body>
+</html>
